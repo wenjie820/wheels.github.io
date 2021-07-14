@@ -9,7 +9,7 @@ let msg = "";
 
 function setup() {
   // createCanvas(500, 500);
-  createCanvas(windowWidth-5, windowHeight-15);
+  createCanvas(windowWidth, windowHeight);
   lenMean = width/10;
   lenSd = lenMean/2;
 
@@ -57,7 +57,7 @@ function draw() {
   noStroke();
   textSize(32);
   textAlign(CENTER);
-  text(msg, width/2, height-50);
+  text(msg, width/2, height-100);
 }
 
 function getQueryString(name) {
