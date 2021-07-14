@@ -9,7 +9,7 @@ let msg = "";
 
 function setup() {
   // createCanvas(500, 500);
-  createCanvas(windowWidth-20, windowHeight-50);
+  createCanvas(windowWidth-10, windowHeight-20);
   lenMean = width/10;
   lenSd = lenMean/2;
 
@@ -41,7 +41,7 @@ function setup() {
   msg = "Welcome" + nameParam + "!!!";
 
   // document.documentElement.style.overflow='hidden';
-  // document.body.style.overflow='hidden';
+  document.body.style.overflow='hidden';
 
   // var move=function(e){
   //     e.preventDefault && e.preventDefault();
@@ -74,7 +74,7 @@ function draw() {
   noStroke();
   textSize(32);
   textAlign(CENTER);
-  text(msg, width/2, height-10);
+  text(msg, width/2, height-50);
 }
 
 function getQueryString(name) {
