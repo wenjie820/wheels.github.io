@@ -8,7 +8,10 @@ let nameParam = "";
 let msg = "";
 
 function setup() {
-  createCanvas(500, 500);
+  // createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
+  lenMean = width/10;
+  lenSd = lenMean/2;
 
   for (let j = 0; j < layer; j++) {
     for (let i = wheelNum*j; i < wheelNum*(j+1); i++) {
@@ -16,7 +19,7 @@ function setup() {
       let w = [];
       w.push(random(-0.005, -0.001));
       w.push(random(0.001, 0.005));
-      wheels[i] = new Wheel(width/2, height/2, len, w[Math.floor(random(0, 2))], pointNum);
+      wheels[i] = new Wheel(width/2, width/2, len, w[Math.floor(random(0, 2))], pointNum);
     }
   }
 
@@ -30,10 +33,12 @@ function setup() {
   
   nameParam = getQueryString("name");
   if(nameParam == null) {
-    nameParam = "Text";
+    nameParam = "";
+  } else {
+    nameParam = " "+nameParam+" ";
   }
 
-  msg = "Welcome " + nameParam + " !!!";
+  msg = "Welcome" + nameParam + "!!!";
 }
 
 function draw() {
@@ -46,7 +51,8 @@ function draw() {
   fill(255);
   noStroke();
   textSize(32);
-  text(msg, width/2-120, height-10);
+  textAlign(CENTER);
+  text(msg, width/2, height-10);
 }
 
 function getQueryString(name) {
