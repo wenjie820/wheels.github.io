@@ -55,18 +55,12 @@ function setup() {
   //   }
   // }
   // document.body.onkeydown=keyFunc;
-
+  
+  document.documentElement.style.overflow='hidden';
   document.body.style.overflow='hidden';
-
   document.body.addEventListener('touchmove', function (e) {
     e.preventDefault()
   }, {passive: false});
-
-  wx.ready(function() {
-      wx.hideMenuItems({
-          menuList: ["menuItem:copyUrl","menuItem:editTag","menuItem:delete","menuItem:originPage","menuItem:readMode", "menuItem:openWithQQBrowser", "menuItem:openWithSafari","menuItem:share:email","menuItem:share:brand","menuItem:share:qq","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮
-      });
-  });
 }
 
 function draw() {
