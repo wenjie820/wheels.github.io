@@ -55,12 +55,12 @@ function setup() {
   //   }
   // }
   // document.body.onkeydown=keyFunc;
-  
+
   document.documentElement.style.overflow='hidden';
   document.body.style.overflow='hidden';
-  document.body.addEventListener('touchmove', function (e) {
-    e.preventDefault()
-  }, {passive: false});
+  // document.body.addEventListener('touchmove', function (e) {
+  //   e.preventDefault()
+  // }, {passive: false});
 }
 
 function draw() {
