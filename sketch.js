@@ -9,7 +9,7 @@ let msg = "";
 
 function setup() {
   // createCanvas(500, 500);
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth-20, windowHeight-50);
   lenMean = width/10;
   lenSd = lenMean/2;
 
@@ -39,6 +39,34 @@ function setup() {
   }
 
   msg = "Welcome" + nameParam + "!!!";
+
+  // document.documentElement.style.overflow='hidden';
+  // document.body.style.overflow='hidden';
+
+  // var move=function(e){
+  //     e.preventDefault && e.preventDefault();
+  //     e.returnValue=false;
+  //     e.stopPropagation && e.stopPropagation();
+  //     return false;
+  // }
+  // var keyFunc=function(e){
+  //   if(37<=e.keyCode && e.keyCode<=40){
+  //     return move(e);
+  //   }
+  // }
+  // document.body.onkeydown=keyFunc;
+
+  document.body.style.overflow='hidden';
+
+  document.body.addEventListener('touchmove', function (e) {
+    e.preventDefault()
+  }, {passive: false});
+
+  wx.ready(function() {
+      wx.hideMenuItems({
+          menuList: ["menuItem:copyUrl","menuItem:editTag","menuItem:delete","menuItem:originPage","menuItem:readMode", "menuItem:openWithQQBrowser", "menuItem:openWithSafari","menuItem:share:email","menuItem:share:brand","menuItem:share:qq","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮
+      });
+  });
 }
 
 function draw() {
