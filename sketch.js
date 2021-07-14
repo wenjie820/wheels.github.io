@@ -9,7 +9,7 @@ let msg = "";
 
 function setup() {
   // createCanvas(500, 500);
-  createCanvas(windowWidth-10, windowHeight-20);
+  createCanvas(windowWidth-5, windowHeight-15);
   lenMean = width/10;
   lenSd = lenMean/2;
 
@@ -40,27 +40,10 @@ function setup() {
 
   msg = "Welcome" + nameParam + "!!!";
 
-  // document.documentElement.style.overflow='hidden';
   document.body.style.overflow='hidden';
-
-  // var move=function(e){
-  //     e.preventDefault && e.preventDefault();
-  //     e.returnValue=false;
-  //     e.stopPropagation && e.stopPropagation();
-  //     return false;
-  // }
-  // var keyFunc=function(e){
-  //   if(37<=e.keyCode && e.keyCode<=40){
-  //     return move(e);
-  //   }
-  // }
-  // document.body.onkeydown=keyFunc;
-
-  // document.documentElement.style.overflow='hidden';
-  // document.body.style.overflow='hidden';
-  // document.body.addEventListener('touchmove', function (e) {
-  //   e.preventDefault()
-  // }, {passive: false});
+  document.body.addEventListener('touchmove', function (e) {
+    e.preventDefault()
+  }, {passive: false});
 }
 
 function draw() {
