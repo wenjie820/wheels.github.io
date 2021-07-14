@@ -35,10 +35,10 @@ function setup() {
   if(nameParam == null) {
     nameParam = "";
   } else {
-    nameParam = " "+nameParam+" ";
+    nameParam = " "+nameParam;
   }
 
-  msg = "Welcome" + nameParam + "!!!";
+  msg = "Hello" + nameParam + ", Welcome!!!";
 
   document.body.style.overflow='hidden';
   document.body.addEventListener('touchmove', function (e) {
@@ -57,7 +57,7 @@ function draw() {
   noStroke();
   textSize(32);
   textAlign(CENTER);
-  text(msg, width/2, height-100);
+  text(msg, width/2, height-60);
 }
 
 function getQueryString(name) {
