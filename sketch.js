@@ -7,16 +7,20 @@ let layer = 4;
 let nameParam = "";
 let msg = "";
 // let vid;
+let gif;
 
 function setup() {
   // createCanvas(500, 500);
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent("p5");
+
   lenMean = width/10;
   lenSd = lenMean/2;
 
   imageMode(CENTER);
   // vid = createVideo("data/background.mp4", vidLoad);
   // vid.hide();
+  gif = loadGif("data/background.gif");
 
   for (let j = 0; j < layer; j++) {
     for (let i = wheelNum*j; i < wheelNum*(j+1); i++) {
@@ -48,12 +52,26 @@ function setup() {
   document.body.style.overflow="hidden";
   document.body.addEventListener("touchmove", function (e) {
     e.preventDefault();
-  }, {passive: false});
+  }, {passive: false});  
+
+  let size = 100;
+  var qrcode = new QRCode("qrcode", {
+      text: "welcome: "+nameParam,
+      width: size,
+      height: size,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+  });
+
+  document.getElementById("qrcode").style.marginLeft=width/2-size/2+"px";
+  document.getElementById("qrcode").style.marginTop=height-size-100+"px";
 }
 
 function draw() {
   background(0);
-  // image(vid, width/2, height/2, height*2, height);
+  // // image(vid, width/2, height/2, height*2, height);
+  // // image(gif, width/2, height/2);
 
   for (let wheel of wheels) {
     wheel.show();
@@ -63,7 +81,7 @@ function draw() {
   noStroke();
   textSize(32);
   textAlign(CENTER);
-  text(msg, width/2, height-150);
+  text(msg, width/2, height-30);
 }
 
 // function vidLoad() {
