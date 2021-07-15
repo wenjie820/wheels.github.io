@@ -6,12 +6,17 @@ let lenSd = 25;
 let layer = 4;
 let nameParam = "";
 let msg = "";
+let vid;
 
 function setup() {
   // createCanvas(500, 500);
   createCanvas(windowWidth, windowHeight);
   lenMean = width/10;
   lenSd = lenMean/2;
+
+  imageMode(CENTER);
+  vid = createVideo("data/background.mp4", vidLoad);
+  vid.hide();
 
   for (let j = 0; j < layer; j++) {
     for (let i = wheelNum*j; i < wheelNum*(j+1); i++) {
@@ -40,14 +45,15 @@ function setup() {
 
   msg = "Hello" + nameParam + ", Welcome!";
 
-  document.body.style.overflow='hidden';
-  document.body.addEventListener('touchmove', function (e) {
-    e.preventDefault()
+  document.body.style.overflow="hidden";
+  document.body.addEventListener("touchmove", function (e) {
+    e.preventDefault();
   }, {passive: false});
 }
 
 function draw() {
   background(0);
+  image(vid, width/2, height/2, height*2, height);
 
   for (let wheel of wheels) {
     wheel.show();
@@ -60,8 +66,18 @@ function draw() {
   text(msg, width/2, height-150);
 }
 
+function vidLoad() {
+  vid.loop();
+  vid.volume(0);
+}
+
+function touchStarted(event) {
+  vid.loop();
+  vid.volume(0);
+}
+
 function getQueryString(name) {
-  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
   var r = window.location.search.substr(1).match(reg);
   if(r != null) {
     return decodeURI(r[2]);
