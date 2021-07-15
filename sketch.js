@@ -6,7 +6,7 @@ let lenSd = 25;
 let layer = 4;
 let nameParam = "";
 let msg = "";
-let vid;
+// let vid;
 
 function setup() {
   // createCanvas(500, 500);
@@ -15,8 +15,8 @@ function setup() {
   lenSd = lenMean/2;
 
   imageMode(CENTER);
-  vid = createVideo("data/background.mp4", vidLoad);
-  vid.hide();
+  // vid = createVideo("data/background.mp4", vidLoad);
+  // vid.hide();
 
   for (let j = 0; j < layer; j++) {
     for (let i = wheelNum*j; i < wheelNum*(j+1); i++) {
@@ -53,7 +53,7 @@ function setup() {
 
 function draw() {
   background(0);
-  image(vid, width/2, height/2, height*2, height);
+  // image(vid, width/2, height/2, height*2, height);
 
   for (let wheel of wheels) {
     wheel.show();
@@ -66,15 +66,15 @@ function draw() {
   text(msg, width/2, height-150);
 }
 
-function vidLoad() {
-  vid.loop();
-  vid.volume(0);
-}
+// function vidLoad() {
+//   vid.loop();
+//   vid.volume(0);
+// }
 
-function touchStarted(event) {
-  vid.loop();
-  vid.volume(0);
-}
+// function touchStarted(event) {
+//   vid.loop();
+//   vid.volume(0);
+// }
 
 function getQueryString(name) {
   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
