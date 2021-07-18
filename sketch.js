@@ -64,8 +64,8 @@ function setup() {
       correctLevel : QRCode.CorrectLevel.H
   });
 
-  document.getElementById("qrcode").style.marginLeft=width/2-size/2+"px";
-  document.getElementById("qrcode").style.marginTop=height-size-100+"px";
+  document.getElementById("qrcode").style.left=width/2-size/2+"px";
+  document.getElementById("qrcode").style.top=height-size-100+"px";
 }
 
 function draw() {
